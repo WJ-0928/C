@@ -1,27 +1,29 @@
-#include <stdio.h> 
+# include<stdio.h>
+ 
 int main(void)
+ 
 {
-   printf("Enter two integers, and I will tell you\n ");
-   printf("the relationships they satisfy: ");
-   int num1;
-   int num2;
-   scanf("%d %d", &num1, &num2);
-   if (num1==num2){
-   	   printf("%d is equal to %d\n", num1, num2);
-   }
-   if (num1!=num2){
-   	   printf("%d is not equal to %d\n", num1, num2);
-   }
-   if (num1<num2){
-   	   printf("%d is less than %d\n", num1, num2);
-   }
-   if (num1>num2){
-   	   printf("%d is greater than %d\n", num1, num2);
-   }
-   if (num1<=num2){
-   	   printf("%d is less than or equal to %d\n", num1, num2);
-   }
-   if (num1>=num2){
-       printf("%d is greater than or equal to %d\n", num1, num2);
-   }
+ 
+ int a[10];
+ 
+ int b;
+ 
+ int c = 0; //这个程序要求最大值，假定输入的都是非负数，c的初值开始就是最小的(或比最小值更小的数）
+ 
+ printf("输入十个数\n");
+ 
+ for(b=0;b<10;b++)
+ 
+ {
+ 
+  scanf("%d",&a[b]); 
+ 
+  if(c<a[b]) c=a[b]; //如果新输入的数比c大，就令c等于新输入的数（当前最大数） 
+ 
+ }
+ 
+ printf("最大值%d\n",c);
+ 
+ return 0;
+ 
 }
