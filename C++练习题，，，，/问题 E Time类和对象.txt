@@ -1,0 +1,61 @@
+
+问题 E: Time类和对象
+时间限制: 1 Sec  内存限制: 128 MB
+提交: 223  解决: 164
+[提交] [状态] [讨论版] [命题人:admin]
+题目描述
+
+定义类Time，Time有3个公用的数据成员hour、min、sec分别表示小时、分、秒。
+在主函数main中定义Time类对象t1，在主函数main中输入t1的各数据成员再并输出各数据成员。
+
+
+输入
+
+输入类对象的3个数据成员hour、min、sec。
+
+
+输出
+
+输出类对象的3个数据成员hour、min、sec。
+
+
+样例输入
+9 10 11
+
+
+样例输出
+9:10:11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+class Time
+{
+	int hour,min,sec;
+public:
+	void set(){
+		cin>>hour>>min>>sec;
+	}
+	void show(){
+		printf("%d:%d:%d",hour,min,sec);
+	}
+ } ;
+ int main()
+ {
+ 	Time t1;
+ 	t1.set();
+ 	t1.show();
+ 	return 0;
+ }

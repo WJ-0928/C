@@ -1,0 +1,68 @@
+
+问题 F: 析构函数定义
+时间限制: 1 Sec  内存限制: 128 MB
+提交: 123  解决: 110
+[提交] [状态] [讨论版] [命题人:admin]
+题目描述
+
+#include <iostream>
+using namespace std;
+class A
+{
+//不改动其它代码，增加构造函数和析构函数
+//输出正确结果 
+
+}; 
+int main()
+{
+    A a;
+    return 0;
+}
+
+
+
+
+
+样例输出
+构造函数
+析构函数
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+class A
+{
+public: 
+A()
+{
+cout<<"构造函数"<<endl; 
+} 
+~A()
+{
+	cout<<"析构函数"<<endl;
+ } 
+
+}; 
+int main()
+{
+    A a;
+    return 0;
+}
+

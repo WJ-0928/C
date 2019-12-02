@@ -1,0 +1,58 @@
+
+问题 A: 面向对象程序设计上机练习四（变量引用）
+时间限制: 1 Sec  内存限制: 128 MB
+提交: 298  解决: 161
+[提交] [状态] [讨论版] [命题人:admin]
+题目描述
+
+将变量的引用作为函数形参，实现2个int型数据交换。
+
+
+输入
+
+输入2个int型整数。
+
+
+输出
+
+输出2个整数交换前后的值。
+
+
+样例输入
+88 66
+
+
+样例输出
+88 66
+66 88
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+void swap(int &a,int &b){
+	int temp=a;
+	a=b;
+	b=temp;
+} 
+int main()
+{
+	int m,n;
+	cin>>m>>n;
+	cout<<m<<" "<<n<<endl;
+	swap(m,n);
+	cout<<m<<" "<<n<<endl;
+	return 0;
+}

@@ -1,0 +1,59 @@
+
+问题 F: A+B Problem（scanf/printf练习）
+时间限制: 1 Sec  内存限制: 12 MB
+提交: 927  解决: 583
+[提交] [状态] [讨论版] [命题人:外部导入]
+题目描述
+
+Calculate a+b.
+
+
+输入
+
+Two integer a,b (0<=a,b<=10).
+
+
+输出
+
+Output a+b.
+
+
+样例输入
+1 2
+
+
+
+样例输出
+3
+
+
+
+
+提示
+
+问：怎样输入输出？ 答：你的程序应该从标准输入(stdin)中读取数据，而将结果写到标准输出(stdout)。比如，在C语言中你可以使用“scanf”，在C++语言中则可以使用“cin”来输入；输出可以使用C语言的“printf”或者C++语言的“cout”。 注意：不要向标准输出写入题目要求输出结果之外的其他数据，否则你会被判为“Wrong Answer”，即错误的运行结果。 你的程序也不能试图读或写任何文件，否则你可能被判为“Runtime Error”(运行时错误)或“Wrong Answer”(错误结果)。 下面是这道题的一个C++或者G++的程序。 #include < iostream >      //请注意include的使用，如果使用#include 在G++编译器上将出现“Compile Error” using namespace std; int main() {      int a,b;      cin >> a >> b;      cout << a+b << endl; return 0; } 注意：对于GCC或者G++，main()函数的返回值必须是int型，否则可能导致“Compile Error”，即编译错误。 下面是这道题的一个C或者GCC的程序。 #include < stdio.h > int main() {      int a,b;      scanf("%d %d",&a;, &b;);      printf("%d\n",a+b);      return 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	cout<<a+b<<endl;
+	return 0;
+ } 
+
+
+

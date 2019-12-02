@@ -1,0 +1,104 @@
+
+问题 C: 面向对象程序设计上机练习一（函数重载）
+时间限制: 1 Sec  内存限制: 128 MB
+提交: 178  解决: 137
+[提交] [状态] [讨论版] [命题人:admin]
+题目描述
+
+利用数组和函数重载求5个数最大值（分别考虑整数、单精度、长整数的情况）。
+
+
+输入
+
+分别输入5个int型整数、5个float 型实数、5个long型正整数。
+
+
+输出
+
+分别输出5个int型整数的最大值、5个float 型实数的最大值、5个long型正整数的最大值。
+
+
+样例输入
+11 22 666 44 55
+11.11 22.22 33.33 888.88 55.55
+1234567 222222 333333 444444 555555
+
+
+样例输出
+666
+888.88
+1234567
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+int max(int a1,int b1,int c1,int d1,int e1){
+	int max=a1;
+	if(b1>max){
+		max=b1;
+	}
+	if(c1>max){
+		max=c1;
+	}
+	if(d1>max){
+		max=d1;
+	}
+	if(e1>max){
+		max=e1;
+	}
+	return max;
+}
+float max(float a2,float b2,float c2,float d2,float e2){
+	float max=a2;
+	if(b2>max){
+		max=b2;
+	}
+	if(c2>max){
+		max=c2;
+	}
+	if(d2>max){
+		max=d2;
+	}
+	if(e2>max){
+		max=e2;
+	}
+	return max;
+}
+int long max(int long a3,int long b3,int long c3,int long d3,int long e3){
+	int long max=a3;
+	if(b3>max){
+		max=b3;
+	}
+	if(c3>max){
+		max=c3;
+	}
+	if(d3>max){
+		max=d3;
+	}
+	if(e3>max){
+		max=e3;
+	}
+	return max;
+}
+int main()
+{
+	int a1,b1,c1,d1,e1;
+	float a2,b2,c2,d2,e2;
+	int long a3,b3,c3,d3,e3;
+	cin>>a1>>b1>>c1>>d1>>e1;
+	cin>>a2>>b2>>c2>>d2>>e2;
+	cin>>a3>>b3>>c3>>d3>>e3;
+	cout<<max(a1,b1,c1,d1,e1)<<endl;
+	cout<<max(a2,b2,c2,d2,e2)<<endl;
+	cout<<max(a3,b3,c3,d3,e3)<<endl;
+	return 0;
+}

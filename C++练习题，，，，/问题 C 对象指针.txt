@@ -1,0 +1,89 @@
+
+问题 C: 对象指针
+时间限制: 1 Sec  内存限制: 128 MB
+提交: 138  解决: 103
+[提交] [状态] [讨论版] [命题人:admin]
+题目描述
+
+建立对象数组，内放5个学生数据（学号是字符串类型、成绩是整型），设立max函数，用指向对象的指针作函数参数，在max函数中找出5个学生中成绩最高者，并输出其学号和成绩。
+
+
+输入
+
+输入5个学生数据。
+
+
+输出
+
+输出5个学生中成绩最高者的学号和成绩。
+
+
+样例输入
+01 89
+02 78
+03 56
+04 92
+05 76
+
+
+样例输出
+04 92
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+class Student
+{
+	
+
+	public:
+		string num;
+		int grade;
+		void get()
+		{
+			cin>>num>>grade;
+		}		
+};
+void max(Student *p)
+	{
+		int max = p->grade;
+		for(int i = 0;i < 5;i++)
+		{
+			if(max < (p+i)->grade)
+			{
+				max = (p+i)->grade;
+			}	
+		}
+		for(int i = 0;i < 5;i++)
+		{
+			if(max == (p+i)->grade)
+			{
+				cout<<(p+i)->num<<" "<<(p+i)->grade;
+			}				
+		} 
+    }
+int main()
+{
+	Student a[5];
+	Student *p = a;
+	for(int i = 0;i < 5;i++)
+	{
+		a[i].get();
+	}
+	max(p);
+	
+	return 0;
+}
