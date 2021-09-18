@@ -327,111 +327,409 @@ using namespace std;
 //	int _month;
 //	int _day;
 //};
+//
+//#if 0
+//class Date
+//{
+//public:
+//    //1、无参构造函数
+//    Date()
+//    {}
+//
+//    //2、带参构造函数
+//    Date(int year, int month, int day)
+//    {
+//        _year = year;
+//        _month = month;
+//        _day = day;
+//    }
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//};
+//
+//
+//void TestDate()
+//{
+//    Date d1;//调用无参构造函数
+//    Date d2(2019, 7, 27);//调用带参构造函数
+//
+//    //注意：如果通过无参构造函数创建对象时，对象后面不用跟括号，否则就成了函数声明
+//    //以下代码的函数：声明了d3函数，该函数无参，返回一个日期类型的对象
+//    Date d3();
+//}
+//
+//int main()
+//{
+//	int a1;
+//	int a2 = 0;
+//	int a3(0);
+//
+//	Date d(2021, 9, 14);
+//	//d.SetDate(2021, 9, 14);
+//	d.printDate();
+//	return 0;
+//}
+//
+//
+//class Date
+//{
+//public:
+//    /*
+//    //如果用户显示定义了构造函数，编译器将不再生成
+//    Date(int year, int month, int day)
+//    {
+//        _year = year;
+//        _month = month;
+//        _day = day;
+//    }
+//    */
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//};
+//
+//
+//void TestDate()
+//{
+//    //没有定义构造函数，对象也可以创建成功，因此此处调用的是编译器生成的默认构造函数
+//    Date d1;
+//}
+//
+//
+//
+//
+//#include<assert.h>
+//#include<malloc.h>
+//class Seqlist
+//{
+//public:
+//    Seqlist(int capacity = 10)
+//    {
+//        _pData = (int*)malloc(sizeof(int) * capacity);
+//        assert(_pData);
+//
+//        _size = 0;
+//        _capacity = capacity;
+//    }
+//
+//    ~Seqlist()
+//    {
+//        if (_pData)
+//        {
+//            free(_pData);//释放堆上的空间
+//            _pData = NULL;//将指针置为空
+//            _capacity = 0;
+//            _size = 0;
+//        }
+//    }
+//private:
+//    int* _pData;
+//    int _size;
+//    int _capacity;
+//};
+//
+//int main()
+//{
+//    return 0;
+//}
+//#endif
+
+//
+//class Date
+//{
+//public:
+//	Date(int year=1970, int month=1 ,int day=1)
+//        :_year(year)
+//        ,_month(month)
+//        ,_day(day)
+//        ,count(0)
+//	{
+//        count++;
+//        cout << "Date(int,int,int):" << this << endl;
+//	}
+//	Date(Date& d)
+//        :_year(d._year)
+//        ,_month(d._month)
+//        ,_day(d._day)
+//        ,count(++d.count)
+//    {}
+//
+//    Date& operator=(const Date& d)
+//    {
+//        cout << this << "=" << &d << endl;
+//        if (this != &d)
+//        {
+//            _year = d._year;
+//            _month = d._month;
+//            _day = d._day;
+//        }
+//        return *this;
+//    }
+//
+//    ~Date()
+//    {
+//        count--;
+//        cout << "~Date():" << this << endl;
+//    }
+//	void printDate()const
+//	{
+//		cout << _year << "/" << _month << "/" << _day << endl;
+//	}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//    int count;
+//};
+//
+//void TestDate()
+//{
+//    Date d1;
+//    Date d2(d1);
+//}
+//int main()
+//{
+//    TestDate();
+//    return 0;
+//}
+
+
+//int g_count = 0;
+//class Date
+//{
+//public:
+//    Date(int year = 1970, int month = 1, int day = 1)
+//        :_year(year)
+//        , _month(month)
+//        , _day(day)
+//    {
+//        g_count++;
+//        cout << "Date(int,int,int):" << this << endl;
+//    }
+//    Date(Date& d)
+//        :_year(d._year)
+//        , _month(d._month)
+//        , _day(d._day)
+//    {
+//        g_count++;
+//        cout << "Date(Date& ):" << this << endl;
+//    }
+//
+//    Date& operator=(const Date& d)
+//    {
+//        cout << this << "=" << &d << endl;
+//        if (this != &d)
+//        {
+//            _year = d._year;
+//            _month = d._month;
+//            _day = d._day;
+//        }
+//        return *this;
+//    }
+//
+//    ~Date()
+//    {
+//        g_count--;
+//        cout << "~Date():" << this << endl;
+//    }
+//    void printDate()const
+//    {
+//        cout << _year << "/" << _month << "/" << _day << endl;
+//    }
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//};
+////采用全局变量是可以的
+////有缺陷：全局变量是所有函数都可以访问的，万一被修改计数就不准确了
+//void TestDate()
+//{
+//    Date d1;
+//    Date d2(d1);
+//}
+//int main()
+//{
+//    TestDate();
+//    return 0;
+//}
+
+
+//在类中：有没有共享的变量
+//class Date
+//{
+//public:
+//    Date(int year = 1970, int month = 1, int day = 1)
+//        :_year(year)
+//        , _month(month)
+//        , _day(day)
+//    {
+//        count++;
+//        cout << "Date(int,int,int):" << this << endl;
+//    }
+//    Date(Date& d)
+//        :_year(d._year)
+//        , _month(d._month)
+//        , _day(d._day)
+//    {
+//        count++;
+//        cout << "Date(Date& ):" << this << endl;
+//    }
+//
+//    Date& operator=(const Date& d)
+//    {
+//        cout << this << "=" << &d << endl;
+//        if (this != &d)
+//        {
+//            _year = d._year;
+//            _month = d._month;
+//            _day = d._day;
+//        }
+//        return *this;
+//    }
+//
+//    ~Date()
+//    {
+//        count--;
+//        cout << "~Date():" << this << endl;
+//    }
+//    void printDate()const
+//    {
+//        cout << _year << "/" << _month << "/" << _day << endl;
+//    }
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//public:
+//
+//    //static修饰的成员变量---称为静态成员变量
+//    static int count;//注意：静态成员变量在类中只是声明，必须在类外进行初始化
+//};
+////静态成员变量的初始化：
+////注意：静态成员变量在类外进行初始化是不需要添加static关键字
+//int Date::count = 0;
+//void TestDate()
+//{
+//    Date d1;
+//    Date d2(d1);
+//}
+//int main()
+//{
+//    Date d1;
+//    Date d2(d1);
+//    cout << &d1.count << " " << &d2.count << endl;
+//    TestDate();
+//    return 0;
+//}
+
+//class Date
+//{
+//public:
+//    Date(int year = 1970, int month = 1, int day = 1)
+//        :_year(year)
+//        , _month(month)
+//        , _day(day)
+//    {
+//        count++;
+//        cout << "Date(int,int,int):" << this << endl;
+//    }
+//    Date(Date& d)
+//        :_year(d._year)
+//        , _month(d._month)
+//        , _day(d._day)
+//    {
+//        count++;
+//        cout << "Date(Date& ):" << this << endl;
+//    }
+//
+//    Date& operator=(const Date& d)
+//    {
+//        cout << this << "=" << &d << endl;
+//        if (this != &d)
+//        {
+//            _year = d._year;
+//            _month = d._month;
+//            _day = d._day;
+//        }
+//        return *this;
+//    }
+//
+//    ~Date()
+//    {
+//        count--;
+//        cout << "~Date():" << this << endl;
+//    }
+//    void printDate()const
+//    {
+//        cout << _year << "/" << _month << "/" << _day << endl;
+//    }
+//    static int GetCount()
+//    {
+//        return count;
+//    }
+//
+//private:
+//    int _year;
+//    int _month;
+//    int _day;
+//    static int count;};
+//int Date::count = 0;
+//void TestDate()
+//{
+//    cout << Date::GetCount() << endl;
+//    Date d1;
+//    Date d2(d1);
+//}
+//int main()
+//{
+//    Date d1;
+//    Date d2(d1);
+//
+//    cout << d1.GetCount() << endl;
+//
+//    TestDate();
+//    return 0;
+//}
 
 #if 0
-class Date
+class Date;//前置声明
+class Time
 {
+    friend class Date;//声明日期类为时间类的友元类，则在日期类中就直接访问Time类中的私有成员变量
 public:
-    //1、无参构造函数
-    Date()
+    Time(int hour, int minute, int second)
+        :_hour(hour)
+        , _minute(minute)
+        , _second(second)
     {}
-
-    //2、带参构造函数
-    Date(int year, int month, int day)
-    {
-        _year = year;
-        _month = month;
-        _day = day;
-    }
 private:
-    int _year;
-    int _month;
-    int _day;
+    int _hour;
+    int _minute;
+    int _second;
 };
-
-
-void TestDate()
-{
-    Date d1;//调用无参构造函数
-    Date d2(2019, 7, 27);//调用带参构造函数
-
-    //注意：如果通过无参构造函数创建对象时，对象后面不用跟括号，否则就成了函数声明
-    //以下代码的函数：声明了d3函数，该函数无参，返回一个日期类型的对象
-    Date d3();
-}
-
-int main()
-{
-	int a1;
-	int a2 = 0;
-	int a3(0);
-
-	Date d(2021, 9, 14);
-	//d.SetDate(2021, 9, 14);
-	d.printDate();
-	return 0;
-}
-
-
 class Date
 {
 public:
-    /*
-    //如果用户显示定义了构造函数，编译器将不再生成
-    Date(int year, int month, int day)
+    Date(int year = 1900, int month = 1, int day = 1)
+        :_year(year)
+        , _month(month)
+        , _day(day)
+    {}
+    void SetTimeOfDate(int hour, int minute, int second)
     {
-        _year = year;
-        _month = month;
-        _day = day;
+        //直接访问时间类私有成员变量
+        _t._hour = hour;
+        _t._minute = minute;
+        _t._second = second;
     }
-    */
 private:
     int _year;
     int _month;
     int _day;
+    Time _t;
 };
-
-
-void TestDate()
-{
-    //没有定义构造函数，对象也可以创建成功，因此此处调用的是编译器生成的默认构造函数
-    Date d1;
-}
-
 #endif
-
-
-#include<assert.h>
-#include<malloc.h>
-class Seqlist
-{
-public:
-    Seqlist(int capacity = 10)
-    {
-        _pData = (int*)malloc(sizeof(int) * capacity);
-        assert(_pData);
-
-        _size = 0;
-        _capacity = capacity;
-    }
-
-    ~Seqlist()
-    {
-        if (_pData)
-        {
-            free(_pData);//释放堆上的空间
-            _pData = NULL;//将指针置为空
-            _capacity = 0;
-            _size = 0;
-        }
-    }
-private:
-    int* _pData;
-    int _size;
-    int _capacity;
-};
-
-int main()
-{
-    return 0;
-}
