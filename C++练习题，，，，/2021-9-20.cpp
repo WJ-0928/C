@@ -83,3 +83,27 @@ int main()
 }
 
 #endif
+
+
+class Test
+{
+public:
+	Test()
+		:_t(10)
+	{
+		cout << "Test():" << this << endl;
+	}
+	~Test()
+	{
+		cout << "~Test():" << this << endl;
+	}
+
+	int _t;
+};
+
+int main()
+{
+	//开辟空间 和 调用构造函数
+	Test* pt = new Test;
+	return 0;
+}
